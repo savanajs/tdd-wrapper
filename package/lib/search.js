@@ -12,7 +12,12 @@ var _utils = require('./utils');
 /*eslint-disable */
 var search = exports.search = function search(query, type) {
 
-  return fetch(_config.API_URL + '/search?q=' + query + '&type=' + type, _config.HEADERS).then(_utils.toJSON);
+  return fetch(_config.API_URL + '/search?q=' + query + '&type=' + type, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      Authorization: 'Bearer ' + 'BQAqb1tIO4fLrvUHTeaFE-WyVw-0yXxhVkA3C8Bzezst5Syxxx4agarNpnFjq0m94Etvnk4ClSF2gF6iiSG4YsGa4dpAtQX7ok1hE3gx9CGZsgS4RrRq_bRhJ7v6zb_m0Z7N99sSu7DyLZ8n-dCaNqKpx6hQ'
+    } }).then(_utils.toJSON);
 };
 
 var searchArtists = exports.searchArtists = function searchArtists(query) {

@@ -84,19 +84,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 /*eslint-disable */
 
-var TOKEN_API = 'BQBqHG1mZl5thKIWPc8j1b43sqoHAfxEovdesJIO-px6llbPW0gt016mwdjWCt_9zT3cZ8VbYmu_hSsg5IKYvqz9u8GtQ0362j3rVFMEmklYnhIsPL7NwiOXSxrqIKZ1td3pn3NUFIO8ghj5XA16tY3v2d3E';
-
 var API_URL = exports.API_URL = 'https://api.spotify.com/v1';
-var HEADERS = exports.HEADERS = {
-    headers: {
-        Accept: 'application/json',
-        Authorization: '\'Bearer ' + TOKEN_API + '\''
-    }
-};
 
 /***/ }),
 /* 1 */
@@ -132,15 +124,15 @@ var _utils = __webpack_require__(1);
 
 /*eslint-disable */
 var getAlbum = exports.getAlbum = function getAlbum(id) {
-  return fetch(_config.API_URL + '/albums/' + id, _config.HEADERS).then(_utils.toJSON);
+  return fetch(_config.API_URL + '/albums/' + id).then(_utils.toJSON);
 };
 
 var getAlbums = exports.getAlbums = function getAlbums(ids) {
-  return fetch(_config.API_URL + '/albums/?ids=' + ids, _config.HEADERS).then(_utils.toJSON);
+  return fetch(_config.API_URL + '/albums/?ids=' + ids).then(_utils.toJSON);
 };
 
 var getAlbumsTracks = exports.getAlbumsTracks = function getAlbumsTracks(id) {
-  return fetch(_config.API_URL + '/albums/' + id + '/tracks', _config.HEADERS).then(_utils.toJSON);
+  return fetch(_config.API_URL + '/albums/' + id + '/tracks').then(_utils.toJSON);
 };
 
 /***/ }),
@@ -162,7 +154,12 @@ var _utils = __webpack_require__(1);
 /*eslint-disable */
 var search = exports.search = function search(query, type) {
 
-  return fetch(_config.API_URL + '/search?q=' + query + '&type=' + type, _config.HEADERS).then(_utils.toJSON);
+  return fetch(_config.API_URL + '/search?q=' + query + '&type=' + type, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      Authorization: 'Bearer ' + 'BQAqb1tIO4fLrvUHTeaFE-WyVw-0yXxhVkA3C8Bzezst5Syxxx4agarNpnFjq0m94Etvnk4ClSF2gF6iiSG4YsGa4dpAtQX7ok1hE3gx9CGZsgS4RrRq_bRhJ7v6zb_m0Z7N99sSu7DyLZ8n-dCaNqKpx6hQ'
+    } }).then(_utils.toJSON);
 };
 
 var searchArtists = exports.searchArtists = function searchArtists(query) {

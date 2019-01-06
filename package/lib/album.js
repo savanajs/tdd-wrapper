@@ -11,13 +11,13 @@ var _utils = require('./utils');
 
 /*eslint-disable */
 var getAlbum = exports.getAlbum = function getAlbum(id) {
-  return fetch(_config.API_URL + '/albums/' + id, _config.HEADERS).then(_utils.toJSON);
+  return fetch(_config.API_URL + '/albums/' + id).then(_utils.toJSON);
 };
 
 var getAlbums = exports.getAlbums = function getAlbums(ids) {
-  return fetch(_config.API_URL + '/albums/?ids=' + ids, _config.HEADERS).then(_utils.toJSON);
+  return fetch(_config.API_URL + '/albums/?ids=' + ids).then(_utils.toJSON);
 };
 
 var getAlbumsTracks = exports.getAlbumsTracks = function getAlbumsTracks(id) {
-  return fetch(_config.API_URL + '/albums/' + id + '/tracks', _config.HEADERS).then(_utils.toJSON);
+  return fetch(_config.API_URL + '/albums/' + id + '/tracks').then(_utils.toJSON);
 };
